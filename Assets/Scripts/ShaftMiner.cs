@@ -7,6 +7,15 @@ public class ShaftMiner : BaseMiner
     [SerializeField] private Transform shaftMiningLocation;
     [SerializeField] private Transform shaftDepositLocation;
 
+    private Animator _animator;
+    private int miningAnimationParameter = Animator.StringToHash("Mining");
+    private int walkingAnimationParameter = Animator.StringToHash("Walking");
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -23,9 +32,16 @@ public class ShaftMiner : BaseMiner
         // }
     }
 
+    public override void MoveMiner(Vector3 newPosition)
+    {
+        base.MoveMiner(newPosition);
+        _animator.SetTrigger(walkingAnimationParameter);
+    }
+
     protected override void CollectGold()
     {
         float collectTime = CollectCapacity / CollectPerSecond;
+        _animator.SetTrigger(miningAnimationParameter);
         StartCoroutine(routine: IECollect(CollectCapacity, collectTime));
     }
 
@@ -35,6 +51,7 @@ public class ShaftMiner : BaseMiner
 
         CurrentGold = collectGold;
         ChangeGoal();
+        RotateMiner(-1);
         MoveMiner(shaftDepositLocation.position);
     }
 
@@ -42,6 +59,7 @@ public class ShaftMiner : BaseMiner
     {
         CurrentGold = 0;
         ChangeGoal();
+        RotateMiner(1);
         MoveMiner(shaftMiningLocation.position);
     }
 

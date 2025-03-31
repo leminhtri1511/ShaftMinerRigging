@@ -288,7 +288,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1918621127
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 74d72e38704518a4d9d74eb5614e8123, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -564,7 +564,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &611555745
 RectTransform:
@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 700364023}
   - component: {fileID: 700364022}
   - component: {fileID: 700364025}
+  - component: {fileID: 700364026}
   m_Layer: 0
   m_Name: ShaftMiner
   m_TagString: Untagged
@@ -638,8 +639,8 @@ MonoBehaviour:
   - {fileID: 1609135415}
   - {fileID: 1331320136}
   m_Bounds:
-    m_Center: {x: -0.021402001, y: 0.018231243, z: 0}
-    m_Extent: {x: 0.22618687, y: 0.3773883, z: 0}
+    m_Center: {x: -0.021402001, y: 0.018231153, z: 0}
+    m_Extent: {x: 0.22618687, y: 0.37738824, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -682,7 +683,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1918621127
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 13472d7d0ca04ab4b9d18912de36ab73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -703,7 +704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700364021}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.152, y: -1.514, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -733,6 +734,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &700364026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700364021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb0163b6cf671848a153bb3a28feea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaftMiningLocation: {fileID: 2083790039}
+  shaftDepositLocation: {fileID: 1771379091}
 --- !u!1 &783205920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1177,37 @@ Transform:
   m_Father: {fileID: 990432321}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1771379090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771379091}
+  m_Layer: 0
+  m_Name: DepositLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771379091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771379090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.94, y: -0.066, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867339089}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1867339087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1264,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1539271381
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3091322804606936671, guid: 55d6b8e82d2883b40a502d91ce624330, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1239,10 +1285,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867339087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7129, y: -1.3659, z: 0}
-  m_LocalScale: {x: 0.90084225, y: 1.0605562, z: 1}
+  m_LocalPosition: {x: 0.7129, y: -1.4445, z: 0}
+  m_LocalScale: {x: 0.90084225, y: 1.2883637, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2083790039}
+  - {fileID: 1771379091}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1309,3 +1357,34 @@ Transform:
   m_Father: {fileID: 515295552}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -48.18}
+--- !u!1 &2083790038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083790039}
+  m_Layer: 0
+  m_Name: MiningLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083790039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083790038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.78, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867339089}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

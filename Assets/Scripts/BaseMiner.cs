@@ -23,7 +23,7 @@ public class BaseMiner : MonoBehaviour
         CollectPerSecond = goldCollectPerSecond;
     }
 
-    public void MoveMiner(Vector3 newPosition)
+    public virtual void MoveMiner(Vector3 newPosition)
     {
         transform.DOMove(newPosition, duration: 10f / moveSpeed).OnComplete((() =>
         {
@@ -56,5 +56,20 @@ public class BaseMiner : MonoBehaviour
     public void ChangeGoal()
     {
         IsTimeToCollect = !IsTimeToCollect;
+    }
+
+    public void RotateMiner(int direction)
+    {
+        Vector3 minerMoveForward = new(x: 1, y: 1, z: 1);
+        Vector3 minerMoveBackward = new(x: -1, y: 1, z: 1);
+
+        if (direction == 1)
+        {
+            transform.localScale = minerMoveForward;
+        }
+        else
+        {
+            transform.localScale = minerMoveBackward;
+        }
     }
 }
