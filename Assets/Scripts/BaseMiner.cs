@@ -31,10 +31,10 @@ public class BaseMiner : MonoBehaviour
             {
                 CollectGold();
             }
-            // else
-            // {
-
-            // }
+            else
+            {
+                DepositGold();
+            }
         })).Play();
     }
 
@@ -46,5 +46,15 @@ public class BaseMiner : MonoBehaviour
     protected virtual IEnumerator IECollect(int collectGold, float collectTime)
     {
         yield return null;
+    }
+
+    protected virtual void DepositGold()
+    {
+
+    }
+
+    public void ChangeGoal()
+    {
+        IsTimeToCollect = !IsTimeToCollect;
     }
 }
