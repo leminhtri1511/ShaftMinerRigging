@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShaftMiner : BaseMiner
 {
     [SerializeField] private Transform shaftMiningLocation;
-
+    [SerializeField] private Transform shaftDepositLocation;
 
     // Update is called once per frame
     private void Update()
@@ -13,6 +13,27 @@ public class ShaftMiner : BaseMiner
         if (Input.GetKeyDown(KeyCode.M))
         {
             MoveMiner(shaftMiningLocation.position);
+            Debug.Log("Go To Mining");
         }
+
+        // if (Input.GetKeyDown(KeyCode.B))
+        // {
+        //     MoveMiner(shaftDepositLocation.position);
+        //     Debug.Log("Go Back");
+        // }
+    }
+
+    protected override void CollectGold()
+    {
+        float collectTime = CollectCapacity / CollectPerSecond;
+        StartCoroutine(routine: IECollect(CollectCapacity, collectTime));
+    }
+
+    protected override IEnumerator IECollect(int collectGold, float collectTime)
+    {
+        yield return new WaitForSeconds(collectTime);
+
+        CurrentGold = collectGold;
+        MoveMiner(shaftDepositLocation.position);
     }
 }
