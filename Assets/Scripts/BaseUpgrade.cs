@@ -48,7 +48,7 @@ public class BaseUpgrade : MonoBehaviour
 
     protected virtual void UpgradeSuccess()
     {
-        // Remove Gold
+        GoldManager.Instance.RemoveGold((int) UpgradeCost);
         CurrentLevel++;
         OnUpgrade?.Invoke(this, CurrentLevel);
     }

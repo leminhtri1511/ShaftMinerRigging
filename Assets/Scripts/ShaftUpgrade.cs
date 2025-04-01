@@ -8,15 +8,20 @@ public class ShaftUpgrade : BaseUpgrade
     {
         if (_shaft != null)
         {
+            if (CurrentLevel % 10 == 0)
+            {
+                _shaft.CreateMiner();
+            }
+
             foreach (ShaftMiner miner in _shaft.Miners)
             {
-                miner.CollectCapacity += (int)collectCapacityMultiplier;
-                miner.CollectPerSecond += collectPerSecondMultiplier;
+                miner.CollectCapacity *= (int) collectCapacityMultiplier;
+                miner.CollectPerSecond *= collectPerSecondMultiplier;
 
                 // CurrentLevel (10) % 10
                 if (CurrentLevel % 10 == 0)
                 {
-                    miner.MoveSpeed += moveSpeedMultiplier;
+                    miner.MoveSpeed *= moveSpeedMultiplier;
                 }
             }
         }

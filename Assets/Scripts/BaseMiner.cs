@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class BaseMiner : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private int initialCollectCapacity = 200;
     [SerializeField] private float goldCollectPerSecond = 50f;

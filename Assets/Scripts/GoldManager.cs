@@ -11,14 +11,16 @@ public class GoldManager : MonoBehaviour
     public int CurrentGold { get; set; }
 
     private readonly string GOLD_KEY = "GoldKey";
-    
-    private void Awake() {
+
+    private void Awake()
+    {
         Instance = this;
     }
 
     private void Start()
     {
         LoadGold();
+
     }
 
     private void LoadGold()
@@ -26,14 +28,14 @@ public class GoldManager : MonoBehaviour
         CurrentGold = PlayerPrefs.GetInt(GOLD_KEY, testGold);
     }
 
-    private void AddGold(int amount)
+    public void AddGold(int amount)
     {
         CurrentGold += amount;
         PlayerPrefs.SetInt(GOLD_KEY, CurrentGold);
         PlayerPrefs.Save();
     }
 
-    private void RemoveGold(int amount)
+    public void RemoveGold(int amount)
     {
         CurrentGold -= amount;
         PlayerPrefs.SetInt(GOLD_KEY, CurrentGold);
