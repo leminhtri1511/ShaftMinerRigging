@@ -1,22 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseUpgrade : MonoBehaviour
 {
+    public static Action<BaseUpgrade, int> OnUpgrade;
+
+
     [Header("Upgrades")]
-    [SerializeField] private float collectCapacityMultiplier = 2f;
-    [SerializeField] private float collectPerSecondMultiplier = 2f;
-    [SerializeField] private float moveSpeedMultiplier = 1.5f;
+    [SerializeField] protected float collectCapacityMultiplier = 2f;
+    [SerializeField] protected float collectPerSecondMultiplier = 2f;
+    [SerializeField] protected float moveSpeedMultiplier = 1.5f;
 
     [Header("Cost")]
     [SerializeField] private float initialUpgradeCost = 200f;
     [SerializeField] private float upgradeCostMultiplier = 2f;
 
+
     public int CurrentLevel { get; set; }
     public float UpgradeCost { get; set; }
 
+
     protected Shaft _shaft;
+
 
     private void Start()
     {
@@ -42,11 +49,14 @@ public class BaseUpgrade : MonoBehaviour
     protected virtual void UpgradeSuccess()
     {
         // Remove Gold
+        CurrentLevel++;
+        OnUpgrade?.Invoke(this, CurrentLevel);
     }
 
     protected virtual void UpdateUpgradeValues()
     {
         // Update Values
+        UpgradeCost += upgradeCostMultiplier;
     }
 
     protected virtual void RunUpgrade()
