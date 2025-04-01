@@ -502,8 +502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb0163b6cf671848a153bb3a28feea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shaftMiningLocation: {fileID: 0}
-  shaftDepositLocation: {fileID: 0}
+  moveSpeed: 5
+  initialCollectCapacity: 200
+  goldCollectPerSecond: 50
 --- !u!1 &8589932477760257690
 GameObject:
   m_ObjectHideFlags: 0

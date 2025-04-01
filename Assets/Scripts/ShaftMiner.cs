@@ -36,6 +36,9 @@ public class ShaftMiner : BaseMiner
     protected override void DepositGold()
     {
         Vector3 miningLocation = CurrentShaft.MiningLocation.position;
+        
+        Deposit addCurrentGoldToDeposit = CurrentShaft.CurrentDeposit;
+        addCurrentGoldToDeposit.DepositGold(CurrentGold);
 
         CurrentGold = 0;
         ChangeGoal();
