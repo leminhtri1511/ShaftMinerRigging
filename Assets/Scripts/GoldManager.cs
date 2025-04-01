@@ -1,0 +1,43 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GoldManager : MonoBehaviour
+{
+    public static GoldManager Instance;
+
+    [SerializeField] private int testGold = 0;
+
+    public int CurrentGold { get; set; }
+
+    private readonly string GOLD_KEY = "GoldKey";
+    
+    private void Awake() {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        LoadGold();
+    }
+
+    private void LoadGold()
+    {
+        CurrentGold = PlayerPrefs.GetInt(GOLD_KEY, testGold);
+    }
+
+    private void AddGold(int amount)
+    {
+        CurrentGold += amount;
+        PlayerPrefs.SetInt(GOLD_KEY, CurrentGold);
+        PlayerPrefs.Save();
+    }
+
+    private void RemoveGold(int amount)
+    {
+        CurrentGold -= amount;
+        PlayerPrefs.SetInt(GOLD_KEY, CurrentGold);
+        PlayerPrefs.Save();
+    }
+
+}
