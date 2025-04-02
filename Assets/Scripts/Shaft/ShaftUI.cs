@@ -2,10 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class ShaftUI : MonoBehaviour
 {
+    [Header("Button")]
+    [SerializeField] private GameObject buyNewShaftButton;
+
+    [Header("Text")]
     [SerializeField] private TextMeshProUGUI currentGoldTMP;
     [SerializeField] private TextMeshProUGUI currentLevelTMP;
 
@@ -21,6 +26,20 @@ public class ShaftUI : MonoBehaviour
     private void Update()
     {
         currentGoldTMP.text = _shaft.CurrentDeposit.CurrentGold.ToString();
+
+    }
+
+
+    public void BuyNewShaft()
+    {
+        if ((GoldManager.Instance.CurrentGold >= ShaftManager.Instance.NewShaftCost) && (ShaftManager.Instance.ShaftList.Count < 2))
+        {
+            GoldManager.Instance.RemoveGold(ShaftManager.Instance.NewShaftCost);
+            ShaftManager.Instance.AddShaft();
+            buyNewShaftButton.SetActive(false);
+            Debug.Log("buy success");
+
+        }
     }
 
     private void UpgradeShaft(BaseUpgrade upgrade, int currentLevel)

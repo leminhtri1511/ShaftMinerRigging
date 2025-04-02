@@ -2,25 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoldManager : MonoBehaviour
+public class GoldManager : Singleton<GoldManager>
 {
-    public static GoldManager Instance;
-
     [SerializeField] private int testGold = 0;
 
     public int CurrentGold { get; set; }
 
     private readonly string GOLD_KEY = "GoldKey";
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
     private void Start()
     {
         LoadGold();
-
     }
 
     private void LoadGold()
