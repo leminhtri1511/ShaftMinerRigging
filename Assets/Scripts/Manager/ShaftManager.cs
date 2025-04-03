@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ShaftManager : Singleton<ShaftManager>
 {
-
-
     [SerializeField] private Shaft shaftPrefab;
     [SerializeField] private float newShaftYPosition;
     [SerializeField] private int newShaftCost = 500;
 
     [Header("Shaft")]
     [SerializeField] private List<Shaft> shafts;
+
+    public List<Shaft> Shafts => shafts;
 
     public int NewShaftCost => newShaftCost;
 
