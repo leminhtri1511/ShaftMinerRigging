@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.251, y: -1.114}
+  m_AnchoredPosition: {x: -0.251, y: -0.993}
   m_SizeDelta: {x: 1, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3300802314108590797
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1482d7e314038fc488f8d10cbd74ed0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyNewShaftButton: {fileID: 0}
+  buyNewShaftButton: {fileID: 3789221543749435093}
   currentGoldTMP: {fileID: 7042266070549680558}
   currentLevelTMP: {fileID: 7042266069607983941}
 --- !u!114 &7042266069318346899

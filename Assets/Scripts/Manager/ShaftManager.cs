@@ -15,7 +15,7 @@ public class ShaftManager : Singleton<ShaftManager>
 
     public int NewShaftCost => newShaftCost;
 
-    public List<Shaft> ShaftList => shafts;
+    // public List<Shaft> ShaftList => shafts;
 
     public void AddShaft()
     {

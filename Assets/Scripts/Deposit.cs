@@ -15,4 +15,30 @@ public class Deposit : MonoBehaviour
     {
         CurrentGold -= amount;
     }
+
+    public int CollectGold(BaseMiner miner)
+    {
+
+        int minerCapacity = miner.CollectCapacity - miner.CurrentGold;
+        return EvaluateAmountToCollect(minerCapacity);
+    }
+
+    private int EvaluateAmountToCollect(int minerCollectCapacity)
+    {
+        if (minerCollectCapacity <= CurrentGold)
+        {
+            Debug.Log($"DEPOSIT FILE: minerCollectCapacity: {minerCollectCapacity}");
+            return minerCollectCapacity;
+        }
+        else
+        {
+            Debug.Log($"DEPOSIT FILE: CurrentGold: {CurrentGold}");
+            return CurrentGold;
+        }
+    }
+
+    public bool CanCollectGold()
+    {
+        return CurrentGold > 0;
+    }
 }

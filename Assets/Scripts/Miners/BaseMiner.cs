@@ -30,17 +30,21 @@ public class BaseMiner : MonoBehaviour
 
     public virtual void MoveMiner(Vector3 newPosition)
     {
-        transform.DOMove(newPosition, duration: 10f / MoveSpeed).OnComplete((() =>
-        {
-            if (IsTimeToCollect)
-            {
-                CollectGold();
-            }
-            else
-            {
-                DepositGold();
-            }
-        })).Play();
+        transform.DOMove(newPosition, duration: 10f / MoveSpeed).OnComplete(
+            (
+                () =>
+                    {
+                        if (IsTimeToCollect)
+                        {
+                            CollectGold();
+                        }
+                        else
+                        {
+                            DepositGold();
+                        }
+                    }
+            )
+        ).Play();
     }
 
     protected virtual void CollectGold()

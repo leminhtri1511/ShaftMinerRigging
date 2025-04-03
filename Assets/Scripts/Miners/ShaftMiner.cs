@@ -18,6 +18,7 @@ public class ShaftMiner : BaseMiner
     protected override void CollectGold()
     {
         float collectTime = CollectCapacity / CollectPerSecond;
+
         _animator.SetTrigger(miningAnimationParameter);
         StartCoroutine(routine: IECollect(CollectCapacity, collectTime));
     }
@@ -37,12 +38,11 @@ public class ShaftMiner : BaseMiner
     {
         Vector3 miningLocation = CurrentShaft.MiningLocation.position;
         
-        Deposit addCurrentGoldToDeposit = CurrentShaft.CurrentDeposit;
-        addCurrentGoldToDeposit.DepositGold(CurrentGold);
+        CurrentShaft.CurrentDeposit.DepositGold(CurrentGold);
 
         CurrentGold = 0;
         ChangeGoal();
-        RotateMiner(1);
+        RotateMiner(direction: 1);
         MoveMiner(miningLocation);
     }
 

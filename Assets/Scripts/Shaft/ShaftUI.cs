@@ -32,13 +32,14 @@ public class ShaftUI : MonoBehaviour
 
     public void BuyNewShaft()
     {
-        if ((GoldManager.Instance.CurrentGold >= ShaftManager.Instance.NewShaftCost) && (ShaftManager.Instance.ShaftList.Count < 2))
+        if ((GoldManager.Instance.CurrentGold >= ShaftManager.Instance.NewShaftCost)
+        //  && (ShaftManager.Instance.ShaftList.Count < 2)
+         )
         {
             GoldManager.Instance.RemoveGold(ShaftManager.Instance.NewShaftCost);
             ShaftManager.Instance.AddShaft();
             buyNewShaftButton.SetActive(false);
             Debug.Log("buy success");
-
         }
     }
 
