@@ -685,11 +685,6 @@ Transform:
   m_Father: {fileID: 668757365}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1215482048 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3789221543749435093, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-  m_PrefabInstance: {fileID: 7042266070011149767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1250870576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,17 +1140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d43235017f375f48b561463b1ded886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1867339091 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7042266069318346900, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-  m_PrefabInstance: {fileID: 7042266070011149767}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1482d7e314038fc488f8d10cbd74ed0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1942406155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,26 +1312,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3695588468201424439, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1867339091}
-    - target: {fileID: 3695588468201424439, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyNewShaft
-      objectReference: {fileID: 0}
-    - target: {fileID: 3695588468201424439, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ShaftUI, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7042266069318346888, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
       propertyPath: m_Name
       value: Shaft
       objectReference: {fileID: 0}
-    - target: {fileID: 7042266069318346900, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-      propertyPath: buyNewShaftButton
-      value: 
-      objectReference: {fileID: 1215482048}
     - target: {fileID: 7042266069318346902, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1396,9 +1364,5 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8293017155561795238, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.993
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c932a3b2e3771d341acbd8cc3578327e, type: 3}

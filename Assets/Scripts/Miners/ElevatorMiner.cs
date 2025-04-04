@@ -31,22 +31,25 @@ public class ElevatorMiner : BaseMiner
 
     protected override void CollectGold()
     {
-        if (!_currentDeposit.CanCollectGold() && _currentDeposit != null)
+        if (!_currentDeposit.CanCollectGold()
+                && _currentDeposit != null
+                && _currentShaftIndex == ShaftManager.Instance.Shafts.Count - 1)
         {
             _currentShaftIndex = -1;
+            ChangeGoal();
 
             Vector3 elevatorDepositPos = new Vector3(
                 transform.position.x,
                 elevator.DepositLocation.position.y
             );
-            MoveMiner(elevatorDepositPos);
 
+            MoveMiner(elevatorDepositPos);
             return;
         }
 
         int amountToCollect = _currentDeposit.CollectGold(miner: this);
-        Debug.Log($"amountToCollect: {amountToCollect}" );
         float collectTime = amountToCollect / CollectPerSecond;
+
         StartCoroutine(
             routine: IECollect(amountToCollect, collectTime)
         );
@@ -56,18 +59,66 @@ public class ElevatorMiner : BaseMiner
     {
         yield return new WaitForSeconds(collectTime);
 
-        CurrentGold = collectGold;
+        if (CurrentGold > 0 && CurrentGold < CollectCapacity)
+        {
+            CurrentGold += collectGold;
+        }
+        else
+        {
+            CurrentGold = collectGold;
+        }
+
         _currentDeposit.RemoveGold(collectGold);
 
-        yield return new WaitForSeconds(collectTime);
+        yield return new WaitForSeconds(0.6f);
 
-        _currentShaftIndex = -1;
-        ChangeGoal();
+        if (CurrentGold == CollectCapacity ||
+            _currentShaftIndex == ShaftManager.Instance.Shafts.Count - 1)
+        {
+            _currentShaftIndex = -1;
+            ChangeGoal();
 
-        Vector3 elevatorDepositPos = new Vector3(
-            transform.position.x,
-            elevator.DepositLocation.position.y
+            Vector3 elevatorDepositPos = new Vector3(
+                transform.position.x,
+                elevator.DepositLocation.position.y
+            );
+
+            MoveMiner(elevatorDepositPos);
+        }
+        else
+        {
+            MoveToNextLocation();
+        }
+    }
+
+    protected override void DepositGold()
+    {
+        if (CurrentGold <= 0)
+        {
+            _currentShaftIndex = -1;
+            ChangeGoal();
+            MoveToNextLocation();
+
+            return;
+        }
+
+        float depositTime = CurrentGold / CollectPerSecond;
+
+        StartCoroutine(
+            routine: IEDeposit(CurrentGold, depositTime)
         );
-        MoveMiner(elevatorDepositPos);
+    }
+
+    protected override IEnumerator IEDeposit(int goldCollected, float depositTime)
+    {
+        yield return new WaitForSeconds(depositTime);
+
+        elevator.ElevatorDeposit.DepositGold(CurrentGold);
+
+        CurrentGold = 0;
+        _currentShaftIndex = -1;
+
+        ChangeGoal();
+        MoveToNextLocation();
     }
 }

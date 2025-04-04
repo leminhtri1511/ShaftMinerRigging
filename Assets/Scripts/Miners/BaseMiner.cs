@@ -62,6 +62,11 @@ public class BaseMiner : MonoBehaviour
 
     }
 
+    protected virtual IEnumerator IEDeposit(int goldCollected, float depositTime)
+    {
+        yield return null;
+    }
+
     public void ChangeGoal()
     {
         IsTimeToCollect = !IsTimeToCollect;
