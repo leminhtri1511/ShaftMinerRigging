@@ -1,4 +1,4 @@
-```markdown
+
 # ShaftMinerRigging
 
 **ShaftMinerRigging** is a tycoon-style game project where players manage and operate a resource mining shaft. The game is developed using C# and leverages ShaderLab and HLSL to create visually dynamic effects.
