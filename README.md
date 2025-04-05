@@ -44,6 +44,3 @@ Contributions are welcome! To contribute:
 ---
 
 **ShaftMinerRigging** is still under development. Stay tuned for updates and improvements!
-```
-
-Would you like to add any credits, screenshots, or development roadmap to the README as well?
