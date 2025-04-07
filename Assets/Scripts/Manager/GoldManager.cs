@@ -12,8 +12,8 @@ public class GoldManager : Singleton<GoldManager>
 
     private void Start()
     {
-        LoadGold();
         // PlayerPrefs.DeleteAll();
+        LoadGold();
     }
 
     private void LoadGold()
