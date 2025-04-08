@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class BaseMiner : MonoBehaviour
 {
+    public static Action<BaseMiner, float> OnLoading;
+
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private int initialCollectCapacity = 200;
     [SerializeField] private float goldCollectPerSecond = 50f;
@@ -14,7 +17,6 @@ public class BaseMiner : MonoBehaviour
     public int CollectCapacity { get; set; }
     public float CollectPerSecond { get; set; }
     public bool IsTimeToCollect { get; set; }
-
 
     protected Animator _animator;
 

@@ -20,6 +20,7 @@ public class ShaftMiner : BaseMiner
         float collectTime = CollectCapacity / CollectPerSecond;
 
         _animator.SetTrigger(miningAnimationParameter);
+        OnLoading?.Invoke(this, collectTime);
         StartCoroutine(routine: IECollect(CollectCapacity, collectTime));
     }
 

@@ -11,6 +11,13 @@ public class WarehouseMiner : BaseMiner
     private readonly int _walkingNoGold = Animator.StringToHash("WalkingNoGold");
     private readonly int _walkingWithGold = Animator.StringToHash("WalkingWithGold");
 
+    private LoadBar _loadBar;
+
+    private void Start()
+    {
+        _loadBar = GetComponent<LoadBar>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -49,6 +56,9 @@ public class WarehouseMiner : BaseMiner
 
         int currentGold = ElevatorDeposit.CollectGold(miner: this);
         float collectTime = CollectCapacity / CollectPerSecond;
+
+        _loadBar.BarContainer.localScale = new Vector3(-1, 1, 1);
+        OnLoading?.Invoke(this, collectTime);
 
         StartCoroutine(
             routine: IECollect(currentGold, collectTime)
@@ -96,6 +106,9 @@ public class WarehouseMiner : BaseMiner
         _animator.SetBool(_walkingNoGold, false);
 
         float depositTime = CurrentGold / CollectPerSecond;
+
+        _loadBar.BarContainer.localScale = new Vector3(1, 1, 1);
+        OnLoading?.Invoke(this, depositTime);
 
         StartCoroutine(
             routine: IEDeposit(CurrentGold, depositTime)
