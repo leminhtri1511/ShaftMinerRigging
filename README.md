@@ -15,13 +15,6 @@
 - **Strategic Gameplay**: A deep management system with layers of decision-making and planning.
 - **Customizable Shaft Layout**: Design and organize your mining operations to suit your strategy.
 
-## 💻 System Requirements
-
-- **Operating System**: Windows 10 or later
-- **Processor**: Intel Core i5 or equivalent
-- **Memory**: 8 GB RAM or more
-- **Graphics**: DirectX 11 compatible GPU
-
 ## 🚀 Getting Started
 
 1. Clone the repository:
